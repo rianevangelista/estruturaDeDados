@@ -15,15 +15,18 @@ public class Principal {
 		
 		// IMPRIMIR PILHA
 		printPilha(pilha1);
-		System.out.println();
-		
+		System.out.println();	
 		// IMPRIMIR PILHA INVERTIDA
 		printPilhaInvertida(pilha1);
-		System.out.println();
-		
+		System.out.println();	
 		// BUSCAR VALOR NA PILHA
 		buscarPilha(pilha1, 26);
 		System.out.println();
+		// DUPLICAR VALOR NA PILHA
+		duplicarValor(pilha1, 17);
+		System.out.println();
+		
+		printPilha(pilha1);
 	}
 	
 	// IMPLEMENTANDO OS MÉTODOS
@@ -88,11 +91,23 @@ public class Principal {
 		}
 	}
 	
-	/*void duplicarValor(Pilha pilha, int valor) {
+	void duplicarValor(Pilha pilha, int valor) {
+		Pilha aux5 = new Pilha();
 		
+		while(!pilha.isEmpty()) {
+			if (valor == pilha.top()) {
+				aux5.push(pilha.top());
+			}
+			aux5.push(pilha.pop());
+		}
+		
+		while(!aux5.isEmpty()) {
+			pilha.push(aux5.pop());
+		}		
 	}
+
 	
-	void substituirValor(Pilha pilha, int v1, int v2) {
+	/*void substituirValor(Pilha pilha, int v1, int v2) {
 
 	}*/
 	

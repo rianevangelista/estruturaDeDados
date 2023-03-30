@@ -2,7 +2,7 @@
 
 # Projeto de Estrutura de Dados em JAVA
 
-# [ 1 - PILHA ]
-# * printPilha()
-# * imprimirPilhaInvertida()
-# * duplicarValor()
+[ 1 - PILHA ]
+* printPilha()
+* imprimirPilhaInvertida()
+* duplicarValor()

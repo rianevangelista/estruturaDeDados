@@ -1,8 +1,7 @@
 package estrutura_de_dados00;
 
 public class Principal {
-	public Principal() {
-//		Tipo  objeto		
+	public Principal() {		
 		Pilha pilha1 = new Pilha();
 		Pilha pilha2 = new Pilha();
 		Pilha pilha3 = new Pilha();
@@ -27,9 +26,92 @@ public class Principal {
 		System.out.println();
 		
 		printPilha(pilha1);
+		System.out.println();
+
+		// FILA
+		System.out.println("FILA");
+		
+		Fila fila = new Fila();
+		fila.enqueue(14);
+		fila.enqueue(23);
+		fila.enqueue(35);
+		fila.enqueue(27);
+		
+		// IMPRIMIR FILA
+		printFila(fila);
+		System.out.println();
+		// BUSCAR VALOR NA FILA
+		buscarFila(fila, 23);
+		System.out.println();
+
+		// REMOVER VALOR DA FILA **
+		removerValorF(fila, 14);
+		System.out.println();
+
+
+		// LISTA
+		System.out.println("LISTA");
+		LSE lista = new LSE();
+		lista.inserirFinal(14);
+		lista.inserirFinal(12);
+		lista.inserirFinal(52);
+		lista.inserirFinal(76);
+		lista.inserirFinal(83);
+		lista.inserirFinal(15);
+		lista.printLista();
+
 	}
 	
 	// IMPLEMENTANDO OS MÉTODOS
+	void printFila(Fila fila) {	
+		
+		Fila auxFila1 = new Fila();
+		
+		while(!fila.isEmpty()) {
+			System.out.println(fila.front());
+			auxFila1.enqueue(fila.dequeue());
+		}
+		while(!auxFila1.isEmpty()) {
+			fila.enqueue(auxFila1.dequeue());
+		}
+		
+	}
+
+	boolean buscarFila(Fila fila, int valor) {
+				
+		Fila auxFila2 = new Fila();
+		
+		while(!fila.isEmpty()) {
+			if(valor == fila.front()) {
+				System.out.println(fila.front());
+				auxFila2.enqueue(fila.front());
+				return true;
+			} 	
+			fila.dequeue();
+		}
+		
+		
+		return false;
+	}
+	
+	void removerValorF(Fila fila, int valor) {
+		//Remove todas as ocorrências de valor da fila
+		Fila auxFila4 = new Fila();
+		
+		while(!fila.isEmpty()) {
+			if(valor == fila.front()) {
+				System.out.println("Delete: " + fila.front());
+				fila.dequeue();
+			}
+			else {
+				auxFila4.enqueue(fila.dequeue());
+			}
+		}
+		
+		while(!auxFila4.isEmpty()) {
+			fila.enqueue(auxFila4.dequeue());
+		}
+	}
 
 	void printPilha(Pilha pilha) {		
 		Pilha aux1 = new Pilha();
@@ -56,6 +138,14 @@ public class Principal {
 			System.out.println(aux2.top());
 			pilha.push(aux2.pop());
 		}
+	}
+
+	void printRecursivo(Pilha p) {
+		if(p.isEmpty()) return;
+		int x = p.pop();
+		System.out.print(x + "-");
+		printRecursivo(p);
+		p.push(x);
 	}
 	
 	int buscarPilha(Pilha pilha, int valor) {

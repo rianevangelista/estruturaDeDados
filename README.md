@@ -6,3 +6,12 @@
 * printPilha()
 * imprimirPilhaInvertida()
 * duplicarValor()
+* buscarPilha()
+* printRecursivo()
+* separarParImpar()
+
+[ 2 - FILA ]
+* printFila()
+* buscarFila()
+
+
